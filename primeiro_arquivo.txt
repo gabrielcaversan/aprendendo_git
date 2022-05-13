@@ -1,0 +1,62 @@
+Olá! Nesse primeiro arquivo irei descrever resumidamente tudo que aprendi com GIT.
+
+Introdução:
+	GIT é uma ferramenta para controlar versões de arquivo. Ela é muito recomendada principalmente para trabalhos em grupo, onde cada um irá mexer em uma parte do código e se caso todos resolverem aplicar ao mesmo tempo, irá causar uma bagunça no projeto.
+	Entretanto, o GIT faz essas versões remotamente. Ou seja, para que o grupo possa acessa-lo, é necessário um espaço para colocar os arquivos em nuvem. Esse espaço é chamado de repositório. No módulo, o repositório utilizado é o GitHub, porém existem outros como o Bitbucket, o Gitlab e o Codesummit.
+
+Funcionamento do fluxo de trabalho:
+	Existe uma "árvore" mantida pelo git que dispõe em três estados:
+		-committed;
+		-modificado(modified);
+		-preparado(staged).
+	Em committed, os dados estão armazenados de forma segura em seu banco de dados local.
+	Em modificado, algum arquivo foi alterado, porém ainda não foi feito o commit no seu banco de dados.
+	Em preparado, você marcou a versão atual de um arquivo modificado para fazer parte do próximo commit.
+
+	Dessa forma existe três seções:
+		- o repositório Git;
+		- o diretório de trabalho;
+		- a área de preparação.
+	No repositório Git, encontra-se todos os arquivos em sua forma committed
+	No diretório de trabalho estão todos os arquivos que são modificáveis. Se necessário, serão classificados como modificado após comparação com os arquivos presentes no repositório Git.
+	A área de preparação serve para preparar os arquivos modificados para serem enviados ao repositório e assim, serem atualizados no repositório Git.
+
+	Dessa forma, em ordem: os arquivos são modificados no diretório de trabalho, depois ocorre a seleção dos arquivos que serão consolidados no repositório Git e envia para área de preparação. Executa um commit, que envia os arquivos da área de preparação para o repositório Git.
+	
+Alguns comandos utilizados:
+	Após a criação do repositório, você pode obter uma cópia com o comando no terminal: git clone /caminho/para/o/repositório
+	Caso esse repositório não possua uma pasta .git (lembrando que é uma pasta oculta, então deve ser habilitada a opção de itens ocultos no exibir), você pode utilizar o comando: git init
+	Depois disso, arquivos podem ser criados e alterados.
+	Adicionar mudanças: 
+		git add . (adiciona tudo)   OU    git add "nome_do_arquivo" (adiciona arquivo específico)
+	"Commitar" : 
+		git comit -m "comentários das alterações"
+	Mostrar as alterações do arquivo:
+		git diff
+	Verificar o histórico dos commits:
+		git log
+	Enviar alteração: 
+		git push  OU  git push origin main
+	Criando branch (ramificações):
+		git checkout -b nome_da_branch
+	Acessar branch:
+		git checkout nome_da_branch
+	Remover branch:
+		git branch -d nome_da_branch
+	Enviando branch para repositório:
+		git push origin nome_da_branch
+	Criar tag:
+		git tag -a nome_da_tag
+	Atualizar:
+		git pull
+	Mesclar (tem que estar dentro da branch que deseja adicionar o pull que virá, ou dentro da main):
+		git merge nome_da_branch
+Ao mesclar existe a possibilidade de gerar conflitos, nesse caso você é responsável por fazer o merge destes conflitos manualmente editando os arquivos exibidos pelo git e depois marca-los como merged com git add.
+
+Pull request:
+	Também é possível utilizar o pull request do github para caso você não tenha permissão para alterar os arquivos principais, ou caso aquelas alterações necessitem de uma aprovação prévia de algum superior.
+
+Ferramentas gráficas Git:
+	GUI (Graphical User Interface) proporcionarão uma visualização alternativa para o Git. No geral, elas irão fazer a mesma coisa que os comandos no terminal, mas ao invés de ter que digitar os comandos, você só precisa selecionar opções na interface com o mouse. Dentre as recomendadas estão: Qgit, Git Force, Atlassian Sourcetree, GitHub Client e Tortoise Git.
+
+	
